@@ -1,0 +1,19 @@
+{
+    "name": "jinoantony/laravel-kanban",
+    "description": "Kanban boards for laravel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jino Antony",
+            "email": "jinoantony99@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "JinoAntony\\Kanban\\": "src/"
+        }
+    }
+}
