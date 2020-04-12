@@ -33,6 +33,20 @@ abstract class Kanban
     protected $width = '250px';
 
     /**
+     * The name of the js object
+     *
+     * @var string
+     */
+    protected $jsObjName = 'kanban';
+
+    /**
+     * Can drag items in the board
+     *
+     * @var boolean
+     */
+    protected $dragItems = true;
+
+    /**
      * Create new Kanban
      *
      * @param array $boards
@@ -77,6 +91,32 @@ abstract class Kanban
     public function width(string $width)
     {
         $this->width = $width;
+
+        return $this;
+    }
+
+    /**
+     * Set the name for js object variable
+     *
+     * @param string $objName
+     * @return $this
+     */
+    public function ObjectName(string $objName)
+    {
+        $this->jsObjName = $objName;
+
+        return $this;
+    }
+
+    /**
+     * Specify the items are draggable or not
+     *
+     * @param boolean $dragItems
+     * @return $this
+     */
+    public function dragItems(bool $dragItems)
+    {
+        $this->dragItems = $dragItems;
 
         return $this;
     }
@@ -136,11 +176,13 @@ abstract class Kanban
      */
     public function scripts()
     {
-        return view('kanban.scripts', [
+        return view('laravel-kanban::script', [
             'element' => $this->element,
             'margin' => $this->gutter,
             'width' => $this->width,
-            'boards' => $this->formatBoards()
+            'boards' => $this->formatBoards(),
+            'jsObjName' => $this->jsObjName,
+            'dragItems' => $this->dragItems,
         ])->render();
     }
 

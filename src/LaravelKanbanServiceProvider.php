@@ -13,7 +13,7 @@ class LaravelKanbanServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/views' => resource_path('views/vendor/laravel-kanban'),
-        ]);
+        ], 'laravel-kanban');
 
         if ($this->app->runningInConsole()) {
             $this->commands([

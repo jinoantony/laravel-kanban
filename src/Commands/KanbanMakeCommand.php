@@ -22,6 +22,13 @@ class KanbanMakeCommand extends GeneratorCommand
     protected $description = 'Create a new Kanban class.';
 
     /**
+     * The type of class being generated.
+     *
+     * @var string
+     */
+    protected $type = 'Kanban Board';
+
+    /**
      * Parse the name and format according to the root namespace.
      *
      * @param string $name
