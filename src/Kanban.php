@@ -47,6 +47,20 @@ abstract class Kanban
     protected $dragItems = true;
 
     /**
+     * Can drag boards
+     *
+     * @var boolean
+     */
+    protected $dragBoards = true;
+
+    /**
+     * Specify whether to use responsive layout for boards
+     *
+     * @var boolean
+     */
+    protected $isResponsive = false;
+
+    /**
      * Create new Kanban
      *
      * @param array $boards
@@ -101,7 +115,7 @@ abstract class Kanban
      * @param string $objName
      * @return $this
      */
-    public function ObjectName(string $objName)
+    public function objectName(string $objName)
     {
         $this->jsObjName = $objName;
 
@@ -117,6 +131,32 @@ abstract class Kanban
     public function dragItems(bool $dragItems)
     {
         $this->dragItems = $dragItems;
+
+        return $this;
+    }
+
+    /**
+     * Specify the boards are draggable or not
+     *
+     * @param boolean $dragBoards
+     * @return $this
+     */
+    public function dragBoards(bool $dragBoards)
+    {
+        $this->dragBoards = $dragBoards;
+
+        return $this;
+    }
+
+    /**
+     * Specify whether to use responsive layout or not
+     *
+     * @param boolean $isResponsive
+     * @return $this
+     */
+    public function responsive(bool $isResponsive)
+    {
+        $this->isResponsive = $isResponsive;
 
         return $this;
     }
@@ -183,6 +223,8 @@ abstract class Kanban
             'boards' => $this->formatBoards(),
             'jsObjName' => $this->jsObjName,
             'dragItems' => $this->dragItems,
+            'dragBoards' => $this->dragBoards,
+            'isResponsive' => $this->isResponsive,
         ])->render();
     }
 

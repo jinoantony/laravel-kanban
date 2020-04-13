@@ -3,10 +3,10 @@ var {{ $jsObjName }} = new jKanban({
     element          : '{{ $element }}',                             // selector of the kanban container
     gutter           : '{{ $margin }}',                              // gutter of the board
     widthBoard       : '{{ $width }}',                               // width of the board
-    responsivePercentage: false,                                     // if it is true I use percentage in the width of the boards and it is not necessary gutter and widthBoard
-    dragItems        : {{ $dragItems ? 'true' : 'false' }},                                         // if false, all items are not draggable
+    responsivePercentage: @json($isResponsive),                      // if it is true I use percentage in the width of the boards and it is not necessary gutter and widthBoard
+    dragItems        : @json($dragItems),                            // if false, all items are not draggable
     boards           : @json($boards, JSON_UNESCAPED_SLASHES),       // json of boards
-    dragBoards       : true,                                         // the boards are draggable, if false only item can be dragged
+    dragBoards       : @json($dragBoards),                           // the boards are draggable, if false only item can be dragged
     addItemButton    : false,                                        // add a button to board for easy item creation
     buttonContent    : '+',                                          // text or html content of the board button
     itemHandleOptions: {
