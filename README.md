@@ -6,14 +6,14 @@ A laravel wrapper for the [jkanban](https://github.com/riktar/jkanban) library.
 
 You can install this package using composer.
 
-```
+```shell
 composer require jinoantony/laravel-kanban
 ```
 
 This package supports package auto-discovery, so you don't have to register it manually. If you want to manually register the provider, add the following line to `config/app.php` file.
 
-```
-\JinoAntony\Kanban\LaravelKanbanServiceProvider::class,
+```php
+JinoAntony\Kanban\LaravelKanbanServiceProvider::class,
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ This package uses [jkanban](https://github.com/riktar/jkanban) library under the
 
 You can use the artisan command to generate kanban boards.
 
-```
+```shell
 php artisan kanban:make TaskKanban
 ```
 
